@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import SWRegister from "@/components/pwa/sw-register";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,6 +16,8 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "SetRep",
   description: "PWA para personal trainer e alunas (offline-first).",
+  manifest: "/manifest.json",
+  themeColor: "#0ea5e9",
 };
 
 export default function RootLayout({
@@ -27,6 +30,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <SWRegister />
         {children}
       </body>
     </html>

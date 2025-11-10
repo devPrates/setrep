@@ -14,10 +14,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SetRep",
+  title: "Fernanda Personal",
   description: "PWA para personal trainer e alunas (offline-first).",
   manifest: "/manifest.json",
-  themeColor: "#0ea5e9",
+  themeColor: "#7c3aed",
 };
 
 export default function RootLayout({

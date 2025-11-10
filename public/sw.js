@@ -1,4 +1,4 @@
-const CACHE_NAME = "setrep-v1";
+const CACHE_NAME = "fernanda-personal-v1";
 const APP_SHELL = ["/", "/app", "/dashboard", "/favicon.ico", "/app/globals.css"];
 
 self.addEventListener("install", (event) => {
@@ -10,9 +10,18 @@ self.addEventListener("install", (event) => {
 
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(keys.map((key) => (key !== CACHE_NAME && key.startsWith("setrep-") ? caches.delete(key) : null)))
-    ).then(() => self.clients.claim())
+    caches
+      .keys()
+      .then((keys) =>
+        Promise.all(
+          keys.map((key) =>
+            key !== CACHE_NAME && (key.startsWith("fernanda-personal-") || key.startsWith("setrep-"))
+              ? caches.delete(key)
+              : null
+          )
+        )
+      )
+      .then(() => self.clients.claim())
   );
 });
 

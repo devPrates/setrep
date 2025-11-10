@@ -1,10 +1,10 @@
 {
-  "name": "SetRep",
-  "short_name": "SetRep",
+  "name": "Fernanda Personal",
+  "short_name": "Fernanda",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0a0a0a",
-  "theme_color": "#0ea5e9",
+  "theme_color": "#7c3aed",
   "lang": "pt-BR",
   "description": "PWA para personal trainer e alunas (offline-first).",
   "icons": [

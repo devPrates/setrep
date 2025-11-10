@@ -6,6 +6,7 @@ import { FieldSet, FieldGroup, Field, FieldLabel, FieldContent } from "@/compone
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
+import ThemeToggle from "@/components/app/theme-toggle"
 
 export default function Home() {
   const router = useRouter();
@@ -27,10 +28,18 @@ export default function Home() {
   }
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-background text-foreground">
-      <div className="w-full max-w-sm px-6">
+    <>
+      {/* Barra superior com toggle, mesma posição do header da área /app */}
+      <div className="fixed inset-x-0 top-0 z-40 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="mx-auto flex h-12 max-w-md items-center justify-end px-4">
+          <ThemeToggle />
+        </div>
+      </div>
+      <main className="min-h-screen bg-background text-foreground pt-14 flex flex-col">
+        <div className="flex-1 flex items-center justify-center">
+          <div className="w-full max-w-sm px-6">
         <header className="mb-6 text-center">
-          <div className="mb-1 text-xs font-medium tracking-wide text-muted-foreground">SetRep</div>
+          <div className="mb-1 text-xs font-medium tracking-wide text-muted-foreground">Fernanda Personal</div>
           <h1 className="text-2xl font-semibold">Acessar conta</h1>
           <p className="mt-1 text-sm text-muted-foreground">Entre com seu e-mail e senha para continuar.</p>
         </header>
@@ -59,12 +68,12 @@ export default function Home() {
 
           <p className="mt-3 text-center text-xs text-muted-foreground">Usamos cookies seguros para manter sua sessão.</p>
         </form>
-
-        <Separator className="my-8" />
-        <footer className="text-center text-xs text-muted-foreground">
+          </div>
+        </div>
+        <footer className="px-6 pb-4 text-center text-xs text-muted-foreground">
           © {new Date().getFullYear()} • Desenvolvido por Gabriel Prates
         </footer>
-      </div>
-    </main>
+      </main>
+    </>
   );
 }

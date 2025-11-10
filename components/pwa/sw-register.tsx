@@ -14,7 +14,29 @@ export default function SWRegister() {
 
   useEffect(() => {
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/sw.js").catch(() => {});
+      if (process.env.NODE_ENV === "production") {
+        navigator.serviceWorker.register("/sw.js").catch(() => {});
+      } else {
+        // Em desenvolvimento, evitar SW para não interferir em SSR/HMR
+        navigator.serviceWorker
+          .getRegistrations()
+          .then((regs) => regs.forEach((reg) => reg.unregister()))
+          .catch(() => {});
+        if (typeof window !== "undefined" && "caches" in window) {
+          window.caches
+            .keys()
+            .then((keys) =>
+              Promise.all(
+                keys.map((key) =>
+                  key.startsWith("fernanda-personal-") || key.startsWith("setrep-")
+                    ? window.caches.delete(key)
+                    : Promise.resolve(null)
+                )
+              )
+            )
+            .catch(() => {});
+        }
+      }
     }
     const onOffline = () => setOffline(true);
     const onOnline = () => setOffline(false);

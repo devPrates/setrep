@@ -1,0 +1,131 @@
+// Prisma schema for SetRep aligned with governance rules (PostgreSQL)
+// Table names use snake_case via @@map; model names in PascalCase.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  personal
+  aluna
+}
+
+enum RegistroStatus {
+  iniciado
+  concluido
+}
+
+model User {
+  id           String  @id @default(uuid())
+  email        String  @unique
+  passwordHash String? @map("password_hash")
+  role         Role
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  personalProfile PersonalProfile?
+  alunaProfile     AlunaProfile?
+
+  // back-relations
+  alunas  AlunaProfile[] @relation("PersonalAlunas")
+  treinos Treino[]       @relation("PersonalTreinos")
+
+  @@map("users")
+}
+
+model PersonalProfile {
+  userId    String  @unique @map("user_id")
+  biografia String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Restrict)
+
+  @@map("personal_profiles")
+}
+
+model AlunaProfile {
+  userId     String @unique @map("user_id")
+  personalId String @map("personal_id")
+
+  user     User @relation(fields: [userId], references: [id], onDelete: Restrict)
+  personal User @relation("PersonalAlunas", fields: [personalId], references: [id], onDelete: Restrict)
+
+  treinos   Treino[]
+  registros RegistroTreino[]
+
+  @@index([personalId])
+  @@map("aluna_profiles")
+}
+
+model Exercicio {
+  id         String  @id @default(uuid())
+  nome       String
+  categoria  String?
+  equipamento String?
+  instrucoes String?
+  videoUrl   String? @map("video_url")
+  ativo      Boolean @default(true)
+
+  treinoExercicios TreinoExercicio[]
+
+  @@map("exercicios")
+}
+
+model Treino {
+  id         String  @id @default(uuid())
+  alunaId    String  @map("aluna_id")
+  personalId String  @map("personal_id")
+  nome       String
+  versao     Int     @default(1)
+  ativo      Boolean @default(true)
+
+  aluna    AlunaProfile @relation(fields: [alunaId], references: [userId], onDelete: Restrict)
+  personal User         @relation("PersonalTreinos", fields: [personalId], references: [id], onDelete: Restrict)
+
+  exercicios TreinoExercicio[]
+  registros  RegistroTreino[]
+
+  @@index([alunaId])
+  @@index([personalId])
+  @@map("treinos")
+}
+
+model TreinoExercicio {
+  treinoId    String @map("treino_id")
+  ordem       Int
+  exercicioId String @map("exercicio_id")
+  series      Int?
+  repeticoes  Int?
+  carga       String?
+  observacao  String?
+
+  treino    Treino    @relation(fields: [treinoId], references: [id], onDelete: Cascade)
+  exercicio Exercicio @relation(fields: [exercicioId], references: [id], onDelete: Restrict)
+
+  // ordem única por treino
+  @@id([treinoId, ordem])
+  @@index([exercicioId])
+  @@map("treino_exercicios")
+}
+
+model RegistroTreino {
+  id         String   @id @default(uuid())
+  treinoId   String   @map("treino_id")
+  alunaId    String   @map("aluna_id")
+  status     RegistroStatus
+  startedAt  DateTime? @map("started_at")
+  completedAt DateTime? @map("completed_at")
+  observacao String?
+  origem     String?   // client/server marker for reconciliation
+  synced     Boolean   @default(false)
+
+  treino Treino       @relation(fields: [treinoId], references: [id], onDelete: Restrict)
+  aluna  AlunaProfile @relation(fields: [alunaId], references: [userId], onDelete: Restrict)
+
+  @@index([treinoId])
+  @@index([alunaId])
+  @@map("registros_treino")
+}

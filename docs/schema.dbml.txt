@@ -1,0 +1,122 @@
+Project personal_trainer_pwa {
+  database_type: "PostgreSQL"
+}
+
+Enum role_enum {
+  personal
+  aluna
+}
+
+Enum registro_status_enum {
+  iniciado
+  concluido
+}
+
+Table users {
+  id uuid [pk]
+  email varchar(255) [not null, unique]
+  password_hash varchar(255)
+  role role_enum [not null]
+  created_at timestamp [not null, default: `now()`]
+
+  Note: 'Usuários do sistema (personal e aluna). Email único global para login.'
+}
+
+Table personal_profiles {
+  user_id uuid [pk]
+  biography text
+
+  Note: 'Perfil do personal com biografia exibida às alunas.'
+}
+
+Ref: personal_profiles.user_id > users.id [delete: cascade]
+
+Table aluna_profiles {
+  user_id uuid [pk]
+  personal_id uuid [not null]
+
+  Indexes {
+    (personal_id, user_id) [unique]
+  }
+
+  Note: 'Vínculo entre aluna e personal. Se precisar email único por personal, mover email para esta tabela e criar índice único (personal_id, email).'
+}
+
+Ref: aluna_profiles.user_id > users.id [delete: cascade]
+Ref: aluna_profiles.personal_id > users.id [delete: restrict]
+
+Table exercicios {
+  id uuid [pk]
+  nome varchar(120) [not null]
+  categoria varchar(80)
+  equipamento varchar(120)
+  instrucoes text
+  video_url varchar(2048) // opcional: URL de vídeo demonstrativo
+  ativo boolean [not null, default: true]
+  created_at timestamp [not null, default: `now()`]
+
+  Note: 'Catálogo de exercícios do personal (pode ser compartilhado por múltiplos treinos). Campo video_url opcional para linkar vídeos de execução.'
+}
+
+Table treinos {
+  id uuid [pk]
+  aluna_id uuid [not null]
+  personal_id uuid [not null]
+  nome varchar(60) [not null] // Ex.: A, B, C
+  versao int [not null, default: 1]
+  ativo boolean [not null, default: true]
+  created_at timestamp [not null, default: `now()`]
+
+  Indexes {
+    (aluna_id, ativo)
+  }
+
+  Note: 'Plano de treino atribuído à aluna, com versionamento simples via campo versao.'
+}
+
+Ref: treinos.aluna_id > users.id [delete: restrict]
+Ref: treinos.personal_id > users.id [delete: restrict]
+
+Table treino_exercicios {
+  id uuid [pk]
+  treino_id uuid [not null]
+  exercicio_id uuid [not null]
+  ordem int [not null]
+  series int
+  repeticoes int
+  carga decimal(6,2)
+  observacao text
+  created_at timestamp [not null, default: `now()`]
+
+  Indexes {
+    (treino_id, ordem) [unique]
+    (treino_id, exercicio_id)
+  }
+
+  Note: 'Associação de exercícios ao treino, com parâmetros por exercício e ordem.'
+}
+
+Ref: treino_exercicios.treino_id > treinos.id [delete: cascade]
+Ref: treino_exercicios.exercicio_id > exercicios.id [delete: restrict]
+
+Table registros_treino {
+  id uuid [pk]
+  treino_id uuid [not null]
+  aluna_id uuid [not null]
+  status registro_status_enum [not null]
+  started_at timestamp
+  completed_at timestamp
+  observacao text
+  synced boolean [not null, default: false]
+  created_at timestamp [not null, default: `now()`]
+
+  Indexes {
+    (aluna_id, created_at)
+    (treino_id, created_at)
+  }
+
+  Note: 'Registro de execução do treino pela aluna, com suporte a sync offline.'
+}
+
+Ref: registros_treino.treino_id > treinos.id [delete: restrict]
+Ref: registros_treino.aluna_id > users.id [delete: restrict]

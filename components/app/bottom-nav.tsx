@@ -100,7 +100,7 @@ export default function BottomNav() {
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
     >
       <div className="mx-auto max-w-md px-4 pb-2">
-        <ul className="flex items-center justify-between rounded-lg border bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-4 py-1.5 shadow-lg">
+        <ul className="flex items-center justify-between rounded-lg border bg-background/80 backdrop-blur supports-backdrop-filter:bg-background/60 px-4 py-1.5 shadow-lg">
           {items.map((item) => {
             const active = item.isActive(pathname);
             return (

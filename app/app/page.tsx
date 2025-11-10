@@ -5,7 +5,7 @@ export default function AppHome() {
   return (
     <main className="bg-background text-foreground">
       <section className="mx-auto max-w-md px-6 pt-8">
-        <div className="rounded-xl bg-gradient-to-br from-violet-600 to-violet-400 p-4 text-white shadow-sm">
+        <div className="rounded-xl bg-linear-to-br from-violet-600 to-violet-400 p-4 text-white shadow-sm">
           <p className="text-xs/4 opacity-90">Fernanda Personal</p>
           <h1 className="mt-1 text-2xl font-semibold">Olá, aluna 👋</h1>
           <p className="mt-1 text-sm opacity-90">

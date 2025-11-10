@@ -29,8 +29,8 @@ export default function Home() {
 
   return (
     <>
-      {/* Barra superior com toggle, mesma posição do header da área /app */}
-      <div className="fixed inset-x-0 top-0 z-40 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      {/* Topo simples: apenas o botão de tema, sem reaproveitar o header roxo */}
+      <div className="fixed inset-x-0 top-0 z-40">
         <div className="mx-auto flex h-12 max-w-md items-center justify-end px-4">
           <ThemeToggle />
         </div>
@@ -70,9 +70,7 @@ export default function Home() {
         </form>
           </div>
         </div>
-        <footer className="px-6 pb-4 text-center text-xs text-muted-foreground">
-          © {new Date().getFullYear()} • Desenvolvido por Gabriel Prates
-        </footer>
+        {/* Footer removido do template conforme solicitado */}
       </main>
     </>
   );

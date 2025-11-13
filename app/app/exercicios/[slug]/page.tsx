@@ -2,6 +2,7 @@ import { notFound } from "next/navigation"
 import { Separator } from "@/components/ui/separator"
 import { Button } from "@/components/ui/button"
 import { getExerciseBySlug } from "@/lib/workouts"
+import { Dumbbell } from "lucide-react"
 
 type PageProps = {
   params: { slug: string }
@@ -12,10 +13,17 @@ export default function ExercicioDetailPage({ params }: PageProps) {
   if (!exercise) return notFound()
 
   return (
-    <div className="mx-auto max-w-md px-6 py-6 space-y-5">
-      <header className="space-y-1">
-        <h1 className="text-xl font-semibold">{exercise.name}</h1>
-        <p className="text-sm text-muted-foreground">{exercise.equipment}</p>
+    <div className="mx-auto max-w-xl px-6 py-6 space-y-6 md:max-w-2xl">
+      <header className="rounded-xl bg-linear-to-br from-violet-600 to-violet-400 p-6 text-white shadow-sm">
+        <div className="flex items-center gap-3">
+          <span className="inline-flex items-center justify-center size-9 rounded-lg bg-white/20">
+            <Dumbbell className="size-5" aria-hidden />
+          </span>
+          <div className="flex flex-col">
+            <h1 className="text-3xl font-semibold tracking-tight md:text-4xl font-secondary">{exercise.name}</h1>
+            <span className="text-xs opacity-90">{exercise.equipment}</span>
+          </div>
+        </div>
       </header>
 
       <section className="grid gap-3">
@@ -58,7 +66,7 @@ export default function ExercicioDetailPage({ params }: PageProps) {
       </section>
 
       <footer className="flex justify-end">
-        <Button size="sm" variant="secondary">Marcar concluído</Button>
+        <Button size="lg" className="font-medium">Marcar concluído</Button>
       </footer>
     </div>
   )

@@ -83,13 +83,15 @@ export default function AppHome() {
             href="/app/exercicios"
             className="rounded-lg border bg-card p-4 text-base shadow-sm hover:bg-muted min-h-[44px]"
           >
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center size-9 rounded-lg bg-muted text-foreground/80">
-                <Dumbbell className="size-5" />
-              </span>
-              <div className="flex flex-col">
-                <div className="font-medium">Exercícios</div>
-                <div className="text-sm text-muted-foreground">Catálogo e instruções</div>
+            <div className="rounded-md bg-muted/60 p-3">
+              <div className="flex items-center gap-3">
+                <span className="inline-flex items-center justify-center size-9 rounded-lg bg-background/80 text-primary ring-1 ring-border">
+                  <Dumbbell className="size-5" />
+                </span>
+                <div className="flex flex-col">
+                  <div className="font-secondary font-semibold">Exercícios</div>
+                  <div className="text-sm text-muted-foreground">Catálogo e instruções</div>
+                </div>
               </div>
             </div>
           </a>
@@ -97,13 +99,15 @@ export default function AppHome() {
             href="/app/registros"
             className="rounded-lg border bg-card p-4 text-base shadow-sm hover:bg-muted min-h-[44px]"
           >
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center size-9 rounded-lg bg-muted text-foreground/80">
-                <History className="size-5" />
-              </span>
-              <div className="flex flex-col">
-                <div className="font-medium">Registros</div>
-                <div className="text-sm text-muted-foreground">Histórico e progresso</div>
+            <div className="rounded-md bg-muted/60 p-3">
+              <div className="flex items-center gap-3">
+                <span className="inline-flex items-center justify-center size-9 rounded-lg bg-background/80 text-primary ring-1 ring-border">
+                  <History className="size-5" />
+                </span>
+                <div className="flex flex-col">
+                  <div className="font-secondary font-semibold">Registros</div>
+                  <div className="text-sm text-muted-foreground">Histórico e progresso</div>
+                </div>
               </div>
             </div>
           </a>
@@ -111,13 +115,15 @@ export default function AppHome() {
             href="/app/treinos"
             className="rounded-lg border bg-card p-4 text-base shadow-sm hover:bg-muted min-h-[44px]"
           >
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center size-9 rounded-lg bg-muted text-foreground/80">
-                <ListChecks className="size-5" />
-              </span>
-              <div className="flex flex-col">
-                <div className="font-medium">Meus treinos</div>
-                <div className="text-sm text-muted-foreground">A/B/… e versões</div>
+            <div className="rounded-md bg-muted/60 p-3">
+              <div className="flex items-center gap-3">
+                <span className="inline-flex items-center justify-center size-9 rounded-lg bg-background/80 text-primary ring-1 ring-border">
+                  <ListChecks className="size-5" />
+                </span>
+                <div className="flex flex-col">
+                  <div className="font-secondary font-semibold">Meus treinos</div>
+                  <div className="text-sm text-muted-foreground">A/B/… e versões</div>
+                </div>
               </div>
             </div>
           </a>
@@ -125,13 +131,15 @@ export default function AppHome() {
             href="/app/perfil"
             className="rounded-lg border bg-card p-4 text-base shadow-sm hover:bg-muted min-h-[44px]"
           >
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center justify-center size-9 rounded-lg bg-muted text-foreground/80">
-                <UserIcon className="size-5" />
-              </span>
-              <div className="flex flex-col">
-                <div className="font-medium">Perfil</div>
-                <div className="text-sm text-muted-foreground">Dados e preferências</div>
+            <div className="rounded-md bg-muted/60 p-3">
+              <div className="flex items-center gap-3">
+                <span className="inline-flex items-center justify-center size-9 rounded-lg bg-background/80 text-primary ring-1 ring-border">
+                  <UserIcon className="size-5" />
+                </span>
+                <div className="flex flex-col">
+                  <div className="font-secondary font-semibold">Perfil</div>
+                  <div className="text-sm text-muted-foreground">Dados e preferências</div>
+                </div>
               </div>
             </div>
           </a>

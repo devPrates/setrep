@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Oswald, Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import SWRegister from "@/components/pwa/sw-register";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const primaryFont = Nunito_Sans({
+  variable: "--font-primary",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const secondaryFont = Oswald({
+  variable: "--font-secondary",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -28,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${primaryFont.variable} ${secondaryFont.variable} antialiased`}
       >
         <SWRegister />
         {children}

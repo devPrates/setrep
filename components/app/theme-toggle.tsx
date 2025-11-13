@@ -1,23 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-
-function SunIcon({ className = "text-foreground" }: { className?: string }) {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className={className}>
-      <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M12 2v3M12 19v3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M2 12h3M19 12h3M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12" stroke="currentColor" strokeWidth="1.5" />
-    </svg>
-  );
-}
-
-function MoonIcon({ className = "text-foreground" }: { className?: string }) {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className={className}>
-      <path d="M21 12.79A9 9 0 1 1 11.21 3c.25 0 .5.02.74.04A7 7 0 1 0 21 12.79Z" stroke="currentColor" strokeWidth="1.5" />
-    </svg>
-  );
-}
+import { Sun, Moon } from "lucide-react";
 
 type ThemeToggleProps = {
   className?: string;
@@ -76,14 +60,14 @@ export default function ThemeToggle({ className, iconClassName, variant = "outli
     // Evitar mismatch de hidratação: não renderiza conteúdo dinâmico até montar
     return (
       <Button variant={variant} size="icon-sm" aria-label="Trocar tema" disabled className={className}>
-        <SunIcon className={iconClassName} />
+        <Sun className={iconClassName} />
       </Button>
     );
   }
 
   return (
     <Button variant={variant} size="icon-sm" aria-label="Trocar tema" onClick={toggle} className={className}>
-      {dark ? <SunIcon className={iconClassName} /> : <MoonIcon className={iconClassName} />}
+      {dark ? <Sun className={iconClassName} /> : <Moon className={iconClassName} />}
     </Button>
   );
 }

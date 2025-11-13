@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Home, List, Dumbbell, CheckCircle, User } from "lucide-react";
 
 type NavItem = {
   href: string;
@@ -10,52 +11,23 @@ type NavItem = {
 };
 
 function IconHome(active: boolean) {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-      className={active ? "text-sky-500" : "text-muted-foreground"}>
-      <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1v-5h-4v5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5Z" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-    </svg>
-  );
+  return <Home className={active ? "text-sky-500" : "text-muted-foreground"} />
 }
 
 function IconList(active: boolean) {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-      className={active ? "text-sky-500" : "text-muted-foreground"}>
-      <path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" strokeWidth="1.5"/>
-    </svg>
-  );
+  return <List className={active ? "text-sky-500" : "text-muted-foreground"} />
 }
 
 function IconDumbbell(active: boolean) {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-      className={active ? "text-sky-500" : "text-muted-foreground"}>
-      <rect x="2" y="9" width="3" height="6" rx="1" stroke="currentColor" strokeWidth="1.5"/>
-      <rect x="19" y="9" width="3" height="6" rx="1" stroke="currentColor" strokeWidth="1.5"/>
-      <rect x="7" y="10" width="10" height="4" rx="1" stroke="currentColor" strokeWidth="1.5"/>
-    </svg>
-  );
+  return <Dumbbell className={active ? "text-sky-500" : "text-muted-foreground"} />
 }
 
 function IconCheck(active: boolean) {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-      className={active ? "text-sky-500" : "text-muted-foreground"}>
-      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5"/>
-      <path d="M8 12l2.5 2.5L16 9" stroke="currentColor" strokeWidth="1.5"/>
-    </svg>
-  );
+  return <CheckCircle className={active ? "text-sky-500" : "text-muted-foreground"} />
 }
 
 function IconUser(active: boolean) {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-      className={active ? "text-sky-500" : "text-muted-foreground"}>
-      <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="1.5"/>
-      <path d="M4 20a8 8 0 0 1 16 0" stroke="currentColor" strokeWidth="1.5"/>
-    </svg>
-  );
+  return <User className={active ? "text-sky-500" : "text-muted-foreground"} />
 }
 
 export default function BottomNav() {

@@ -4,10 +4,10 @@ import ThemeToggle from "@/components/app/theme-toggle";
 export default function AppHeader() {
   return (
     <header className="fixed inset-x-0 top-0 z-40 bg-primary text-primary-foreground">
-      <div className="mx-auto flex h-12 max-w-md items-center justify-between px-4">
-        <div className="flex items-center gap-2">
-          <div className="h-6 w-6 rounded-md bg-primary-foreground/20 ring-1 ring-primary-foreground/30" aria-hidden />
-          <span className="text-sm font-semibold">Fernanda Personal</span>
+      <div className="mx-auto flex h-14 max-w-xl items-center justify-between px-6 md:max-w-2xl">
+        <div className="flex items-center gap-3">
+          <div className="h-7 w-7 rounded-md bg-primary-foreground/20 ring-1 ring-primary-foreground/30" aria-hidden />
+          <span className="font-secondary text-base font-semibold tracking-tight md:text-lg">Fernanda Personal trainer</span>
         </div>
         <div className="flex items-center gap-2">
           <ThemeToggle

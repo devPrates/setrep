@@ -32,7 +32,7 @@ function monthMatrix(base: Date) {
 
 const weekday = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"]
 
-export function MonthCalendar({ entriesByDate = {}, initialDate, onSelectDate }: MonthCalendarProps) {
+export function MonthCalendar({ entriesByDate = {}, initialDate, onSelectDate, selectedDate }: MonthCalendarProps & { selectedDate?: string }) {
   const [current, setCurrent] = useState<Date>(initialDate ?? new Date())
   const weeks = useMemo(() => monthMatrix(current), [current])
   const label = useMemo(() => {
@@ -84,7 +84,7 @@ export function MonthCalendar({ entriesByDate = {}, initialDate, onSelectDate }:
             return (
               <button
                 key={key}
-                className={`group flex h-24 w-full flex-col items-center justify-between rounded-none bg-background p-4 transition hover:bg-muted overflow-hidden`}
+                className={`group flex h-24 w-full flex-col items-center justify-between rounded-none ${selectedDate === key ? "bg-muted/60" : "bg-background"} p-4 transition hover:bg-muted overflow-hidden`}
                 onClick={() => onSelectDate?.(d)}
               >
                 {isToday ? (

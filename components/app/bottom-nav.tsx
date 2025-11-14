@@ -40,7 +40,7 @@ export default function BottomNav() {
       href: "/app/treinos",
       label: "Treinos",
       icon: IconList,
-      isActive: (p) => p.startsWith("/app/treinos"),
+      isActive: (p) => /^(?:\/app)?\/treinos(?:\/.*)?$/.test(p) || p.startsWith("/app/exercicios"),
     },
     {
       href: "/app/registros",

@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { notFound } from "next/navigation"
 import { Separator } from "@/components/ui/separator"
 import { Button } from "@/components/ui/button"
@@ -5,12 +6,12 @@ import { getExerciseBySlug } from "@/lib/workouts"
 import { Dumbbell } from "lucide-react"
 
 type PageProps = {
-  params: Promise<{ slug: string }>
+  params: Promise<{ slug: string; exercise: string }>
 }
 
 export default async function ExercicioDetailPage({ params }: PageProps) {
   const p = await params
-  const exercise = getExerciseBySlug(p.slug)
+  const exercise = getExerciseBySlug(p.exercise)
   if (!exercise) return notFound()
 
   return (
@@ -71,7 +72,10 @@ export default async function ExercicioDetailPage({ params }: PageProps) {
         )}
       </section>
 
-      <footer className="flex justify-end">
+      <footer className="flex items-center justify-end gap-2">
+        <Button size="lg" variant="outline" asChild>
+          <Link href={`/app/treinos/${p.slug}`}>Voltar</Link>
+        </Button>
         <Button size="lg" className="font-medium">Marcar concluído</Button>
       </footer>
     </div>

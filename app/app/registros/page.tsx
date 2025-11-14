@@ -77,6 +77,7 @@ export default function RegistrosPage() {
         <MonthCalendar
           entriesByDate={entriesByDate}
           onSelectDate={(d) => setSelected(d.toISOString().slice(0, 10))}
+          selectedDate={selected}
         />
       </section>
 

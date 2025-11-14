@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Avatar } from "@/components/ui/avatar";
-import { Dumbbell, ListChecks, Clock, CheckCircle2, History, User as UserIcon } from "lucide-react";
+import { Dumbbell, ListChecks, Clock, CheckCircle2, User as UserIcon, MessageSquare, LifeBuoy } from "lucide-react";
 
 export default function AppHome() {
   return (
@@ -78,68 +78,46 @@ export default function AppHome() {
           </div>
         </Card>
 
-        <div className="mt-6 grid grid-cols-2 gap-3">
-          <a
-            href="/app/exercicios"
-            className="rounded-lg border bg-card p-4 text-base shadow-sm hover:bg-muted min-h-[44px]"
-          >
-            <div className="rounded-md bg-muted/60 p-3">
-              <div className="flex items-center gap-3">
-                <span className="inline-flex items-center justify-center size-9 rounded-lg bg-background/80 text-primary ring-1 ring-border">
-                  <Dumbbell className="size-5" />
-                </span>
-                <div className="flex flex-col">
-                  <div className="font-secondary font-semibold">Exercícios</div>
-                  <div className="text-sm text-muted-foreground">Catálogo e instruções</div>
-                </div>
-              </div>
-            </div>
-          </a>
-          <a
-            href="/app/registros"
-            className="rounded-lg border bg-card p-4 text-base shadow-sm hover:bg-muted min-h-[44px]"
-          >
-            <div className="rounded-md bg-muted/60 p-3">
-              <div className="flex items-center gap-3">
-                <span className="inline-flex items-center justify-center size-9 rounded-lg bg-background/80 text-primary ring-1 ring-border">
-                  <History className="size-5" />
-                </span>
-                <div className="flex flex-col">
-                  <div className="font-secondary font-semibold">Registros</div>
-                  <div className="text-sm text-muted-foreground">Histórico e progresso</div>
-                </div>
-              </div>
-            </div>
-          </a>
+        <div className="mt-6 grid grid-cols-1 gap-3">
           <a
             href="/app/treinos"
-            className="rounded-lg border bg-card p-4 text-base shadow-sm hover:bg-muted min-h-[44px]"
+            className="rounded-xl border bg-card p-4 text-base shadow-sm hover:bg-muted min-h-[64px]"
           >
-            <div className="rounded-md bg-muted/60 p-3">
-              <div className="flex items-center gap-3">
-                <span className="inline-flex items-center justify-center size-9 rounded-lg bg-background/80 text-primary ring-1 ring-border">
-                  <ListChecks className="size-5" />
-                </span>
-                <div className="flex flex-col">
-                  <div className="font-secondary font-semibold">Meus treinos</div>
-                  <div className="text-sm text-muted-foreground">A/B/… e versões</div>
-                </div>
+            <div className="flex items-center gap-3">
+              <span className="inline-flex items-center justify-center size-9 rounded-lg bg-background/80 text-primary ring-1 ring-border">
+                <ListChecks className="size-5" />
+              </span>
+              <div className="flex flex-col">
+                <div className="font-secondary font-semibold">Meus treinos</div>
+                <div className="text-sm text-muted-foreground">Acesse seus treinos e exercícios</div>
               </div>
             </div>
           </a>
           <a
             href="/app/perfil"
-            className="rounded-lg border bg-card p-4 text-base shadow-sm hover:bg-muted min-h-[44px]"
+            className="rounded-xl border bg-card p-4 text-base shadow-sm hover:bg-muted min-h-[64px]"
           >
-            <div className="rounded-md bg-muted/60 p-3">
-              <div className="flex items-center gap-3">
-                <span className="inline-flex items-center justify-center size-9 rounded-lg bg-background/80 text-primary ring-1 ring-border">
-                  <UserIcon className="size-5" />
-                </span>
-                <div className="flex flex-col">
-                  <div className="font-secondary font-semibold">Perfil</div>
-                  <div className="text-sm text-muted-foreground">Dados e preferências</div>
-                </div>
+            <div className="flex items-center gap-3">
+              <span className="inline-flex items-center justify-center size-9 rounded-lg bg-background/80 text-primary ring-1 ring-border">
+                <MessageSquare className="size-5" />
+              </span>
+              <div className="flex flex-col">
+                <div className="font-secondary font-semibold">Falar com a personal</div>
+                <div className="text-sm text-muted-foreground">Envie dúvidas e preferências</div>
+              </div>
+            </div>
+          </a>
+          <a
+            href="/app/perfil"
+            className="rounded-xl border bg-card p-4 text-base shadow-sm hover:bg-muted min-h-[64px]"
+          >
+            <div className="flex items-center gap-3">
+              <span className="inline-flex items-center justify-center size-9 rounded-lg bg-background/80 text-primary ring-1 ring-border">
+                <LifeBuoy className="size-5" />
+              </span>
+              <div className="flex flex-col">
+                <div className="font-secondary font-semibold">Falar com o suporte</div>
+                <div className="text-sm text-muted-foreground">Ajuda técnica e feedback</div>
               </div>
             </div>
           </a>

@@ -8,10 +8,11 @@ import { Card } from "@/components/ui/card"
 
 type Props = {
   exercise: ExerciseDetail
+  workoutSlug: string
   loopMs?: number
 }
 
-export default function ExerciseCard({ exercise, loopMs = 6000 }: Props) {
+export default function ExerciseCard({ exercise, workoutSlug, loopMs = 6000 }: Props) {
   const [tick, setTick] = useState(0)
   const imgSrc = useMemo(() => {
     const url = exercise.gifUrl || ""
@@ -38,8 +39,8 @@ export default function ExerciseCard({ exercise, loopMs = 6000 }: Props) {
         ) : (
           <div className="w-full h-28 bg-muted" />
         )}
-        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/40 to-transparent p-3">
-          <Link href={`/app/exercicios/${exercise.slug}`} className="font-secondary text-white text-base font-semibold">
+        <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/40 to-transparent p-3">
+          <Link href={`/app/treinos/${workoutSlug}/${exercise.slug}`} className="font-secondary text-white text-base font-semibold">
             {exercise.name}
           </Link>
         </div>
@@ -53,7 +54,7 @@ export default function ExerciseCard({ exercise, loopMs = 6000 }: Props) {
       </div>
       <div className="flex items-center justify-end p-3 pt-0">
         <Button size="sm" variant="ghost" asChild>
-          <Link href={`/app/exercicios/${exercise.slug}`}>Detalhes</Link>
+          <Link href={`/app/treinos/${workoutSlug}/${exercise.slug}`}>Detalhes</Link>
         </Button>
       </div>
     </Card>

@@ -42,7 +42,7 @@ export default async function TreinoDetailPage({ params }: PageProps) {
         <Separator className="my-4" />
         <div className="grid grid-cols-2 gap-2">
           {workout.exercises.map((ex) => (
-            <ExerciseCard key={ex.slug} exercise={ex} />
+            <ExerciseCard key={ex.slug} exercise={ex} workoutSlug={workout.slug} />
           ))}
         </div>
       </section>

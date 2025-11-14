@@ -5,11 +5,12 @@ import { getExerciseBySlug } from "@/lib/workouts"
 import { Dumbbell } from "lucide-react"
 
 type PageProps = {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
-export default function ExercicioDetailPage({ params }: PageProps) {
-  const exercise = getExerciseBySlug(params.slug)
+export default async function ExercicioDetailPage({ params }: PageProps) {
+  const p = await params
+  const exercise = getExerciseBySlug(p.slug)
   if (!exercise) return notFound()
 
   return (
@@ -27,6 +28,11 @@ export default function ExercicioDetailPage({ params }: PageProps) {
       </header>
 
       <section className="grid gap-3">
+        {exercise.gifUrl ? (
+          <div className="flex justify-center">
+            <img src={exercise.gifUrl} alt={exercise.name} className="size-[180px] rounded-md object-cover" loading="lazy" />
+          </div>
+        ) : null}
         <div className="grid grid-cols-2 gap-2 text-sm">
           <div className="rounded-md border bg-background p-3">
             <p className="text-muted-foreground">Séries</p>

@@ -1,0 +1,140 @@
+{
+  "workouts": [
+    {
+      "slug": "treino-a",
+      "title": "Treino A",
+      "groupId": "A",
+      "exercises": [
+        {
+          "slug": "agachamento-livre",
+          "name": "Agachamento livre",
+          "equipment": "Barra e suporte",
+          "sets": 4,
+          "reps": "8–12",
+          "observation": "Mantenha a coluna neutra e o core ativo.",
+          "gifUrl": "https://static.exercisedb.dev/media/7aolH9D.gif"
+        },
+        {
+          "slug": "supino-reto",
+          "name": "Supino reto",
+          "equipment": "Banco e barra",
+          "sets": 4,
+          "reps": "8–10",
+          "observation": "Pés firmes no chão; controle a descida.",
+          "gifUrl": "https://static.exercisedb.dev/media/8d8qJQI.gif"
+        },
+        {
+          "slug": "remada-curvada",
+          "name": "Remada curvada",
+          "equipment": "Barra",
+          "sets": 4,
+          "reps": "10–12",
+          "observation": "Evite balanço; mantenha as escápulas ativas.",
+          "gifUrl": "https://static.exercisedb.dev/media/w2oRpuH.gif"
+        }
+      ]
+    },
+    {
+      "slug": "treino-b",
+      "title": "Treino B",
+      "groupId": "B",
+      "exercises": [
+        {
+          "slug": "levantamento-terra",
+          "name": "Levantamento terra",
+          "equipment": "Barra",
+          "sets": 4,
+          "reps": "6–8",
+          "observation": "Barriga contraída e barra próxima às pernas.",
+          "gifUrl": "https://static.exercisedb.dev/media/7aolH9D.gif"
+        },
+        {
+          "slug": "barra-fixa",
+          "name": "Barra fixa",
+          "equipment": "Barra",
+          "sets": 4,
+          "reps": "6–10",
+          "observation": "Queixo acima da barra; evite impulso excessivo.",
+          "gifUrl": "https://static.exercisedb.dev/media/8d8qJQI.gif"
+        },
+        {
+          "slug": "desenvolvimento-militar",
+          "name": "Desenvolvimento militar",
+          "equipment": "Barra ou halteres",
+          "sets": 3,
+          "reps": "8–10",
+          "observation": "Glúteos contraídos e costelas para baixo.",
+          "gifUrl": "https://static.exercisedb.dev/media/w2oRpuH.gif"
+        }
+      ]
+    },
+    {
+      "slug": "treino-c",
+      "title": "Treino C",
+      "groupId": "C",
+      "exercises": [
+        {
+          "slug": "afundo",
+          "name": "Afundo (split squat)",
+          "equipment": "Halteres (opcional)",
+          "sets": 3,
+          "reps": "10–12",
+          "observation": "Joelho acompanha a ponta do pé; tronco ereto.",
+          "gifUrl": "https://static.exercisedb.dev/media/7aolH9D.gif"
+        },
+        {
+          "slug": "crucifixo-inclinado",
+          "name": "Crucifixo inclinado",
+          "equipment": "Banco inclinado e halteres",
+          "sets": 3,
+          "reps": "10–12",
+          "observation": "Cotovelos levemente flexionados durante o movimento.",
+          "gifUrl": "https://static.exercisedb.dev/media/8d8qJQI.gif"
+        },
+        {
+          "slug": "remada-baixa",
+          "name": "Remada baixa",
+          "equipment": "Cabo",
+          "sets": 3,
+          "reps": "10–12",
+          "observation": "Puxe com as costas; mantenha a lombar neutra.",
+          "gifUrl": "https://static.exercisedb.dev/media/w2oRpuH.gif"
+        }
+      ]
+    },
+    {
+      "slug": "treino-d",
+      "title": "Treino D",
+      "groupId": "D",
+      "exercises": [
+        {
+          "slug": "agachamento-frontal",
+          "name": "Agachamento frontal",
+          "equipment": "Barra",
+          "sets": 3,
+          "reps": "8–10",
+          "observation": "Cotovelos altos e tronco ereto.",
+          "gifUrl": "https://static.exercisedb.dev/media/7aolH9D.gif"
+        },
+        {
+          "slug": "paralelas",
+          "name": "Paralelas",
+          "equipment": "Barras paralelas",
+          "sets": 3,
+          "reps": "6–10",
+          "observation": "Incline levemente para ativar peitoral.",
+          "gifUrl": "https://static.exercisedb.dev/media/8d8qJQI.gif"
+        },
+        {
+          "slug": "remada-unilateral",
+          "name": "Remada unilateral",
+          "equipment": "Halter",
+          "sets": 3,
+          "reps": "10–12",
+          "observation": "Apoie bem o tronco; puxe com dorsais.",
+          "gifUrl": "https://static.exercisedb.dev/media/w2oRpuH.gif"
+        }
+      ]
+    }
+  ]
+}

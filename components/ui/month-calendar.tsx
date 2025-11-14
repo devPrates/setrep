@@ -84,7 +84,7 @@ export function MonthCalendar({ entriesByDate = {}, initialDate, onSelectDate }:
             return (
               <button
                 key={key}
-                className={`group flex h-24 w-full flex-col items-start justify-between rounded-none bg-background p-4 text-left transition hover:bg-muted overflow-hidden`}
+                className={`group flex h-24 w-full flex-col items-center justify-between rounded-none bg-background p-4 transition hover:bg-muted overflow-hidden`}
                 onClick={() => onSelectDate?.(d)}
               >
                 {isToday ? (
@@ -96,7 +96,7 @@ export function MonthCalendar({ entriesByDate = {}, initialDate, onSelectDate }:
                     {d.getDate().toString().padStart(2, "0")}
                   </span>
                 )}
-                <div className="mt-auto flex w-full items-center justify-center">
+                <div className="flex w-full items-center justify-center">
                   {entries.some((e) => e.status === "concluido") ? (
                     <span className="inline-flex items-center justify-center gap-1 rounded-sm bg-emerald-100 px-2 py-0.5 text-[11px] font-medium text-emerald-700 ring-1 ring-emerald-200">
                       <Check className="size-3" />

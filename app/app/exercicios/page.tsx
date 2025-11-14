@@ -3,6 +3,7 @@ import { workouts } from "@/lib/workouts"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { Dumbbell, CheckCircle2, Clock } from "lucide-react"
+import Image from "next/image"
 
 const dayOfWeekByGroup: Record<"A" | "B" | "C" | "D", string> = {
   A: "segunda-feira",
@@ -48,9 +49,13 @@ export default function ExerciciosPage() {
             <li key={ex.slug} className="rounded-lg border bg-card px-4 py-3 shadow-sm">
               <div className="flex items-center justify-between gap-3">
                 <div className="flex items-center gap-3 min-w-0">
-                  <span className="inline-flex items-center justify-center size-8 rounded-md bg-muted text-foreground/70">
-                    <CheckCircle2 className="size-5" />
-                  </span>
+                  {ex.gifUrl ? (
+                    <Image src={ex.gifUrl} alt={ex.name} width={48} height={48} className="rounded-md" />
+                  ) : (
+                    <span className="inline-flex items-center justify-center size-8 rounded-md bg-muted text-foreground/70">
+                      <CheckCircle2 className="size-5" />
+                    </span>
+                  )}
                   <div className="grid min-w-0">
                     <Link href={`/app/exercicios/${ex.slug}`} className="truncate font-medium">
                       {ex.name}
